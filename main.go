@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"goStudy/8.日志管理项目/conf"
-	"goStudy/8.日志管理项目/kafka"
-	"goStudy/8.日志管理项目/tailLog"
+	"goStudy/go-log-agent/conf"
+	"goStudy/go-log-agent/kafka"
+	"goStudy/go-log-agent/tailLog"
+
 	"time"
 )
 
@@ -26,7 +27,7 @@ func run() {
 func main()  {
 	conf.Init()
 
-	err:=kafka.Init([]string{conf.ConfApp.Addr})
+	err:= kafka.Init([]string{conf.ConfApp.Addr})
 	if err!=nil{
 		fmt.Println("init kafka err! err=",err)
 		return
